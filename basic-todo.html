@@ -1,0 +1,69 @@
+<!DOCTYPE html class="h-full">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full grid place-items-center">
+
+    <div id="app">
+        <section v-show="unfinishedAssignments.length">
+            <h2 class="font-bold mb-2">Unfinished</h2>
+            <ul>
+                <li v-for="assignment in unfinishedAssignments" 
+                    :key="assignment.id">
+                    <label for="input{{assignment.id}}">
+                        {{ assignment.name}}
+                        <input id="{{input{{assignment.id}}}}" type="checkbox" 
+                            v-model="assignment.complete">
+                    </label>
+                </li>
+            </ul>
+        </section>
+        <section v-show="completedAssignments.length" class="mt-8">
+            <h2 class="font-bold mb-2">Completed</h2>
+            <ul>
+                <li v-for="assignment in completedAssignments" 
+                    :key="assignment.id">
+                    <label for="input{{assignment.id}}">
+                        {{ assignment.name}}
+                        <input id="{{input{{assignment.id}}}}" type="checkbox" 
+                            v-model="assignment.complete">
+                    </label>
+                </li>
+            </ul>
+        </section>
+    </div>
+    
+
+    <script>
+        let app = {
+            data() {
+                return {
+                    assignments: [
+                        {id: 1, name: "finish project", complete: false},
+                        {id: 2, name: "read chapter", complete: false},
+                        {id: 3, name: "turn in homework", complete: true},
+                    ]
+                }
+            },
+
+            computed: {
+                
+                unfinishedAssignments() {
+                    return this.assignments.filter(assignment => ! assignment.complete);
+                },
+                completedAssignments() {
+                    return this.assignments.filter(assignment => assignment.complete);
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app');
+
+    </script>
+</body>
+</html>
