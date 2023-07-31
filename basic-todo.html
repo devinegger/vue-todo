@@ -41,25 +41,7 @@
 
     <script>
         let app = {
-            data() {
-                return {
-                    assignments: [
-                        {id: 1, name: "finish project", complete: false},
-                        {id: 2, name: "read chapter", complete: false},
-                        {id: 3, name: "turn in homework", complete: true},
-                    ]
-                }
-            },
-
-            computed: {
-                
-                unfinishedAssignments() {
-                    return this.assignments.filter(assignment => ! assignment.complete);
-                },
-                completedAssignments() {
-                    return this.assignments.filter(assignment => assignment.complete);
-                }
-            }
+  
         }
 
         Vue.createApp(app).mount('#app');
