@@ -1,9 +1,9 @@
 export default {
     template: `
         <li>
-            <label for="input{{assignment.id}}">
+            <label class="p-2 flex justify-between items-center" for="input{{assignment.id}}">
                 {{ assignment.name}}
-                <input id="{{input{{assignment.id}}}}" type="checkbox" 
+                <input class="ml-20" id="{{input{{assignment.id}}}}" type="checkbox" 
                     v-model="assignment.complete">
             </label>
         </li>
