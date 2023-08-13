@@ -13,9 +13,9 @@ export default {
     data() {
         return {
             assignments: [
-                {id: 1, name: "Finish The Damn Project", complete: false},
-                {id: 2, name: "Read Chapter 11", complete: false},
-                {id: 3, name: "Turn In My Effin Homework", complete: true},
+                {id: 1, name: "Finish The Project", complete: false, tag: 'math'},
+                {id: 2, name: "Read Chapter 11", complete: false, tag: 'arts'},
+                {id: 3, name: "Turn In My Homework", complete: true, tag: 'magic'},
             ]
         }
     },
@@ -32,7 +32,8 @@ export default {
             this.assignments.push({
                 id:this.assignments.length+1, 
                 name: name, 
-                complete: false
+                complete: false,
+                tag: 'new'
             });
         }
     }
