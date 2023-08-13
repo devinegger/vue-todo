@@ -10,10 +10,9 @@ export default {
             <div>
                 <button 
                     class="border rounded px-1 py-px mr-2 text-xs" 
-                    @click="currentTag = 'all'"
-                >all</button>
-                <button 
-                    class="border rounded px-1 py-px mr-2 text-xs" 
+                    :class="{
+                        'border-fuchsia-600 text-fuchsia-600' : tag === currentTag
+                    }"
                     @click="currentTag = tag"
                     v-for="tag in tags"
                 >{{tag}}</button>
@@ -45,7 +44,7 @@ export default {
             return this.assignments.filter(a => a.tag === this.currentTag)
         },
         tags() {
-            return new Set(this.assignments.map(a => a.tag));
+            return['all', ... new Set(this.assignments.map(a => a.tag))];
         }
     }
 }
