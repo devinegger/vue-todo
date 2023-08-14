@@ -1,0 +1,28 @@
+{
+    "assignments": [
+        {
+            "id": 1,
+            "name": "Finish The Project",
+            "complete": false,
+            "tag": "math"
+        },
+        {
+            "id": 2,
+            "name": "Read Chapter 11",
+            "complete": false,
+            "tag": "reading"
+        },
+        {
+            "id": 3,
+            "name": "Do My Homework",
+            "complete": true,
+            "tag": "magic"
+        },
+        {
+            "id": 4,
+            "name": "Push to GitHub",
+            "complete": false,
+            "tag": "coding"
+        }
+    ]
+}

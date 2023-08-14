@@ -15,13 +15,18 @@ export default {
     `,
     data() {
         return {
-            assignments: [
-                {id: 1, name: "Finish The Project", complete: false, tag: 'math'},
-                {id: 2, name: "Read Chapter 11", complete: false, tag: 'arts'},
-                {id: 3, name: "Turn In My Homework", complete: true, tag: 'magic'},
-            ]
+            assignments: []
         }
     },
+
+    created() {
+        fetch('http://localhost:3001/assignments')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments;
+            })
+    },
+
     computed: { 
         filters() {
             return {
