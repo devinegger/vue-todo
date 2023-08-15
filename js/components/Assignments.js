@@ -8,9 +8,10 @@ export default {
             <div className="title mb-4 text-center">
                 <h1 class="text-4xl mb-4 text-emerald-400">Vue ToDo List<h1>
             </div>
-            <assignment-list :assignments="filters.unfinished" title="Unfinished"></assignment-list>
-            <assignment-list :assignments="filters.completed" title="Completed"></assignment-list>
-            <assignment-create @add="add"></assignment-create>
+            <assignment-list :assignments="filters.completed" title="Completed" can-toggle></assignment-list>
+            <assignment-list :assignments="filters.unfinished" title="Unfinished">
+                <assignment-create @add="add"></assignment-create>
+            </assignment-list>
         </section>
     `,
     data() {
