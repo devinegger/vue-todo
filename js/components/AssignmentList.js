@@ -9,9 +9,8 @@ export default {
                 <span>({{ filteredAssignments.length }})</span>
             </h2>
             <assignment-tags 
-                :data-tags="assignments.map(a=>a.tag)"
-                :current-tag="this.currentTag"
-                @setTag="this.currentTag = $event" />
+                v-model:currentTag="currentTag"
+                :data-tags="assignments.map(a=>a.tag)"/>
             <ul class="border border-zinc-600 divide-y divide-zinc-600 rounded-md mt-3">
                 <assignment v-for="assignment in filteredAssignments" 
                 :key="assignment.id"
@@ -38,12 +37,6 @@ export default {
             }
             return this.assignments.filter(a => a.tag === this.currentTag);
         },
-    },
-
-    methods: {
-        setTag(tag) {
-            this.currentTag = tag;
-        }
     }
 }
 

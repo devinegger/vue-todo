@@ -6,7 +6,7 @@ export default {
                 :class="{
                     'border-fuchsia-600 text-fuchsia-600' : tag === currentTag
                 }"
-                @click="$emit('setTag', tag)"
+                @click="$emit('update:currentTag', tag)"
                 v-for="tag in tags"
             >{{tag}}</button>
         </div>
