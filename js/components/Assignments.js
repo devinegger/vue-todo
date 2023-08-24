@@ -4,14 +4,15 @@ import AssignmentCreate from "./AssignmentCreate.js";
 export default {
     components: { AssignmentList, AssignmentCreate },
     template: `
-        <section class="space-y-8 p-12 border-double border-8 border-fuchsia-600 rounded-2xl shadow-2xl shadow-fuchsia-400/30">
-            <div className="title mb-4 text-center">
-                <h1 class="text-4xl mb-4 text-emerald-400">Vue ToDo List<h1>
-            </div>
-            <assignment-list :assignments="filters.completed" title="Completed" can-toggle></assignment-list>
+        <div className="title mb-4 text-center">
+            <h1 class="text-4xl mb-4 text-emerald-400">Vue ToDo List<h1>
+        </div>
+        <section class=" flex gap-8">
             <assignment-list :assignments="filters.unfinished" title="Unfinished">
                 <assignment-create @add="add"></assignment-create>
             </assignment-list>
+
+            <assignment-list :assignments="filters.completed" title="Completed" can-toggle></assignment-list>
         </section>
     `,
     data() {
